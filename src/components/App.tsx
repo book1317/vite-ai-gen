@@ -1,15 +1,17 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router";
-import Home from "./Home";
-import Login from "./Login";
+import { HomePage, LoginPage } from "../pages";
+import Layout from "./layout/Layout";
 
 const App: React.FC = () => {
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-      </Routes>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<LoginPage />} />
+        </Routes>
+      </Layout>
     </Router>
   );
 };
