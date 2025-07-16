@@ -28,7 +28,10 @@
     ]
   },
   "dependencies": {
+    "@radix-ui/react-label": "^2.1.7",
+    "@radix-ui/react-slot": "^1.2.3",
     "@types/node": "latest",
+    "@types/react-router-dom": "^5.3.3",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "jiti": "latest",
@@ -38,6 +41,7 @@
     "next": "15.2.4",
     "react": "^19",
     "react-dom": "^19",
+    "react-router-dom": "^7.6.3",
     "sass": "latest",
     "sass-embedded": "latest",
     "stylus": "latest",
@@ -49,6 +53,7 @@
     "yaml": "latest"
   },
   "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.11",
     "@tailwindcss/vite": "^4.1.11",
     "@types/node": "^22",
     "@types/react": "^19",
