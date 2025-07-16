@@ -17,29 +17,29 @@ Make sure you have the following installed on your machine:
 
 1. Clone the repository:
 
-   ```
+   \`\`\`
    git clone <repository-url>
-   ```
+   \`\`\`
 
 2. Navigate to the project directory:
 
-   ```
+   \`\`\`
    cd my-react-app
-   ```
+   \`\`\`
 
 3. Install the dependencies:
 
-   ```
+   \`\`\`
    npm install
-   ```
+   \`\`\`
 
 ### Running the Application
 
 To start the development server, run:
 
-```
+\`\`\`
 npm run dev
-```
+\`\`\`
 
 This will start the Vite development server and you can view the application in your browser at `http://localhost:3000`.
 
@@ -47,9 +47,9 @@ This will start the Vite development server and you can view the application in 
 
 To build the application for production, run:
 
-```
+\`\`\`
 npm run build
-```
+\`\`\`
 
 This will create an optimized build of your application in the `dist` folder.
 
