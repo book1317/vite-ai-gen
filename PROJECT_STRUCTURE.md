@@ -10,11 +10,14 @@ src/
 │   ├── common/          # Common components (Header, Footer, etc.)
 │   ├── layout/          # Layout components
 │   ├── ui/              # UI library components (shadcn/ui)
+│   │   ├── *.tsx        # Component files
+│   │   └── *.stories.tsx # Storybook stories
 │   ├── App.tsx          # Main app component
 │   └── index.ts         # Component exports
 ├── pages/               # Page components (route components)
 │   ├── HomePage.tsx     # Home page component
 │   ├── LoginPage.tsx    # Login page component
+│   ├── *.stories.tsx    # Storybook stories for pages
 │   └── index.ts         # Page exports
 ├── hooks/               # Custom React hooks
 │   ├── useAuth.ts       # Authentication hook
@@ -23,7 +26,12 @@ src/
 │   └── index.ts         # Type exports
 ├── utils/               # Utility functions
 │   └── utils.ts         # Common utilities
+├── stories/             # Example Storybook stories
 └── main.tsx             # Application entry point
+.storybook/              # Storybook configuration
+├── main.ts              # Storybook main config
+├── preview.ts           # Global story decorators and parameters
+└── vitest.setup.ts      # Vitest setup for testing
 ```
 
 ## 🏗️ Architecture Overview
@@ -126,6 +134,60 @@ export default ComponentName;
 - **Tailwind CSS** - Styling
 - **shadcn/ui** - UI component library
 - **Vite** - Build tool and dev server
+- **Storybook** - Component development and documentation
+
+## 📚 Storybook Integration
+
+Storybook is integrated for component development and documentation:
+
+### Running Storybook
+
+```bash
+npm run storybook
+```
+
+This will start the Storybook development server at `http://localhost:6006`.
+
+### Building Storybook
+
+```bash
+npm run build-storybook
+```
+
+### Creating Stories
+
+Stories are created alongside components using the `.stories.tsx` extension:
+
+```tsx
+// src/components/ui/button.stories.tsx
+import type { Meta, StoryObj } from "@storybook/react";
+import { Button } from "./button";
+
+const meta: Meta<typeof Button> = {
+  title: "UI/Button",
+  component: Button,
+  parameters: {
+    layout: "centered",
+  },
+  tags: ["autodocs"],
+};
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {
+  args: {
+    children: "Button",
+  },
+};
+```
+
+### Features Included
+
+- **Component Development**: Isolated component development environment
+- **Documentation**: Auto-generated documentation with controls
+- **Accessibility Testing**: Built-in a11y addon for accessibility checks
+- **Visual Testing**: Integration with Chromatic for visual regression testing
 
 ## 📖 Best Practices
 

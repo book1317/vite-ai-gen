@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
 import { Label } from "../components/ui/label";
+import Datepicker from "../components/ui/datepicker";
 import {
   Card,
   CardContent,
@@ -13,6 +14,7 @@ import {
 const LoginPage: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -21,7 +23,7 @@ const LoginPage: React.FC = () => {
 
     // Simulate API call
     setTimeout(() => {
-      console.log("Login attempt:", { email, password });
+      console.log("Login attempt:", { email, password, selectedDate });
       setIsLoading(false);
       // Handle login logic here
     }, 1000);
@@ -79,6 +81,15 @@ const LoginPage: React.FC = () => {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
+                  className="w-full"
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="date">Select Date</Label>
+                <Datepicker
+                  value={selectedDate}
+                  onChange={setSelectedDate}
+                  placeholder="Choose a date"
                   className="w-full"
                 />
               </div>
